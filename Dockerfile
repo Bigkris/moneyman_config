@@ -1,4 +1,4 @@
-FROM node:25 AS builder
+FROM node:26 AS builder
 
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 
@@ -17,7 +17,7 @@ RUN npm run build && \
     npm cache clean --force && \
     rm -rf src report
 
-FROM node:25-slim AS runner
+FROM node:26-slim AS runner
 
 ARG MONEYMAN_BUILD_SHA=unknown
 
